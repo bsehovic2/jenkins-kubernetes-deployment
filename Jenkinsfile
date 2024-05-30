@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     // Ensure Jenkins uses the correct kubeconfig file
-                    withEnv(["KUBECONFIG=/var/lib/jenkins/.kube/config"]) {
+                    withEnv(["KUBECONFIG=/home/etftk/.kube/config"]) {
                         sh '''
                         kubectl apply -f deployment.yaml
                         kubectl apply -f service.yaml
