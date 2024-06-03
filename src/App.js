@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './etf-logo.png'; // Nova slika loga
 import './App.css';
 
 function App() {
