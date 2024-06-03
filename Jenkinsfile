@@ -47,6 +47,17 @@ pipeline {
                 }
             }
         }
+
+        stage('Restart Deployment') {
+            steps {
+                script {
+                    // Ensure Jenkins uses the correct kubeconfig file
+                    withEnv(["KUBECONFIG=/home/etftk/.kube/config"]) {
+                        sh 'kubectl rollout restart deployment/deployment'
+                    }
+                }
+            }
+        }
     }
 }
 
