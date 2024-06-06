@@ -37,6 +37,14 @@ pipeline {
                 }
             }
         }
+        
+        stage('Trivy Scan') {
+            steps {
+                script {
+                    sh 'trivy image --format template --template "@/home/etftk/Documents/jenkins-deploy/trivy_reports/html.tpl" --output trivy_report.html bsehovic2/react-app:latest'
+                }
+            }
+        }
 
         stage('Deploy to Kubernetes') {
             steps {
