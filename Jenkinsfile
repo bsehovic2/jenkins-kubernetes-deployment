@@ -42,7 +42,7 @@ pipeline {
     steps {
         script {
             sh """
-            trivy image --format template --template "/home/etftk/Documents/jenkins-deploy/trivy_reports/html.tpl" --output /home/etftk/Documents/jenkins-deploy/trivy_reports/trivy_report.html bsehovic2/react-app:latest
+            trivy image --format template --template "/home/etftk/Documents/jenkins-deploy/trivy_reports/html.tpl" --output /home/etftk/trivy_report.html bsehovic2/react-app:latest
             """
         }
     }
