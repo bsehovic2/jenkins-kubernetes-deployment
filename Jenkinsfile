@@ -38,12 +38,11 @@ pipeline {
             }
         }
         
-      stage('Trivy Scan') {
+     stage('Trivy Vulnerability Scan') {
             steps {
                 script {
-                    sh """
-                    trivy image --format template --template "/home/etftk/Documents/jenkins-deploy/trivy_reports/html.tpl" --output /home/etftk/Documents/jenkins-deploy/trivy_reports/trivy_report.html bsehovic2/react-app:latest
-                    """
+                    // Run Trivy scan and generate HTML report using the specified template
+                    sh "trivy image --format template --template '@/home/etftk/contrib/html.tpl' -o /home/etftk/Documents/jenkins-deploy/trivy_report.html bsehovic2/react-app"
                 }
             }
         }
