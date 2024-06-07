@@ -74,11 +74,6 @@ pipeline {
         
      
     }
-    post {
-        always {
-            // Archive the Trivy HTML report
-            archiveArtifacts artifacts: '/home/etftk/Documents/jenkins-deploy/trivy_report.html', onlyIfSuccessful: true
-        }
-    }
+   
 }
 
