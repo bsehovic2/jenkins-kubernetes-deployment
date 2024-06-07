@@ -71,6 +71,14 @@ pipeline {
                 }
             }
         }
+        
+     
+    }
+    post {
+        always {
+            // Archive the Trivy HTML report
+            archiveArtifacts artifacts: 'trivy_report.html', onlyIfSuccessful: true
+        }
     }
 }
 
