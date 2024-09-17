@@ -16,6 +16,15 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/bsehovic2/jenkins-kubernetes-deployment'
             }
         }
+        
+        
+        stage('Install Dependencies') {
+    steps {
+        script {
+            sh 'npm install'
+        }
+    }
+}
 
         stage('Build image') {
             steps {
